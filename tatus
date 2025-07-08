@@ -1,0 +1,82 @@
+[1mdiff --git a/CommentCaVa.py b/CommentCaVa.py[m
+[1mindex 23f8e92..37273bc 100644[m
+[1m--- a/CommentCaVa.py[m
+[1m+++ b/CommentCaVa.py[m
+[36m@@ -1,29 +1,56 @@[m
+ import tkinter as tk[m
+[31m-from tkinter import messagebox[m
+[32m+[m[32mfrom tkinter import messagebox, Toplevel, Label, Button, PhotoImage[m
+ [m
+ def repondre_oui():[m
+     messagebox.showinfo("Réponse", "Je suis content")[m
+     root.destroy()[m
+ [m
+ def repondre_non():[m
+[31m-    messagebox.showinfo("Réponse", "Je suis vraiment désolé")[m
+[31m-    root.destroy()[m
+[32m+[m[32m    root.withdraw()[m
+[32m+[m[32m    new_window = Toplevel()[m
+[32m+[m[32m    new_window.title("Réconfort")[m
+[32m+[m
+[32m+[m[32m    try:[m
+[32m+[m[32m        img = PhotoImage(file="pochoir-coeurs.png")[m
+[32m+[m[32m    except Exception as e:[m
+[32m+[m[32m        messagebox.showerror("Erreur image", f"Impossible de charger l'image : {e}")[m
+[32m+[m[32m        root.deiconify()[m
+[32m+[m[32m        return[m
+[32m+[m
+[32m+[m[32m    new_window.geometry(f"{img.width()}x{img.height() + 80}")[m
+[32m+[m
+[32m+[m[32m    img_label = Label(new_window, image=img)[m
+[32m+[m[32m    img_label.image = img[m
+[32m+[m[32m    img_label.pack(pady=10)[m
+[32m+[m
+[32m+[m[32m    label = Label(new_window, text="Ça va mieux ?", font=("Arial", 12))[m
+[32m+[m[32m    label.pack()[m
+[32m+[m
+[32m+[m[32m    def fermer():[m
+[32m+[m[32m        messagebox.showinfo("Réponse", "Je suis content")[m
+[32m+[m[32m        new_window.destroy()[m
+[32m+[m
+[32m+[m[32m    def relancer():[m
+[32m+[m[32m        new_window.destroy()[m
+[32m+[m[32m        root.deiconify()[m
+[32m+[m
+[32m+[m[32m    bouton_oui = Button(new_window, text="Oui", command=fermer, width=10)[m
+[32m+[m[32m    bouton_oui.pack(side="left", padx=20, pady=10, expand=True)[m
+[32m+[m
+[32m+[m[32m    bouton_non = Button(new_window, text="Non", command=relancer, width=10)[m
+[32m+[m[32m    bouton_non.pack(side="right", padx=20, pady=10, expand=True)[m
+ [m
+[31m-# Création de la fenêtre principale[m
+ root = tk.Tk()[m
+ root.title("Dialogue")[m
+ root.geometry("300x150")[m
+ [m
+[31m-# Message principal[m
+ label = tk.Label(root, text="Comment vas-tu ?", font=("Arial", 14))[m
+ label.pack(pady=20)[m
+ [m
+[31m-# Boutons[m
+ btn_oui = tk.Button(root, text="Oui", command=repondre_oui, width=10)[m
+ btn_oui.pack(side="left", expand=True, padx=20)[m
+ [m
+ btn_non = tk.Button(root, text="Non", command=repondre_non, width=10)[m
+ btn_non.pack(side="right", expand=True, padx=20)[m
+ [m
+[31m-# Lancement de la boucle principale[m
+ root.mainloop()[m
+[1mdiff --git a/pochoir-coeurs.png b/pochoir-coeurs.png[m
+[1mnew file mode 100644[m
+[1mindex 0000000..93f5dbd[m
+Binary files /dev/null and b/pochoir-coeurs.png differ
+[1mdiff --git a/pochoir-coeurs.png:Zone.Identifier b/pochoir-coeurs.png:Zone.Identifier[m
+[1mnew file mode 100644[m
+[1mindex 0000000..1d5eb50[m
+[1m--- /dev/null[m
+[1m+++ b/pochoir-coeurs.png:Zone.Identifier[m
+[36m@@ -0,0 +1,4 @@[m
+[32m+[m[32m[ZoneTransfer][m[41m[m
+[32m+[m[32mZoneId=3[m[41m[m
+[32m+[m[32mReferrerUrl=https://www.google.com/[m[41m[m
+[32m+[m[32mHostUrl=https://www.frenchimmo.com/blog/wp-content/uploads/2022/05/pochoir-coeurs.png[m[41m[m
