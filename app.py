@@ -9,5 +9,5 @@ dire_bonjour("Maitre Philippe")
 #bcp plus drole
 #c'est chaud quand meme
 # apparemnt ca sert souvent je vais en chier
-
+print('modifier depuis clone')
 
