@@ -7,4 +7,5 @@ def dire_bonjour(nom):
 
 dire_bonjour("Maitre Philippe")   
 #bcp plus drole
+#c'est chaud quand meme
 
