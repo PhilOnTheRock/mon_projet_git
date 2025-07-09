@@ -5,4 +5,6 @@ print('Projet Git local OK')
 def dire_bonjour(nom):
     print(f"Bonjour {nom} !")
 
-dire_bonjour("Philippe")   
+dire_bonjour("Maitre Philippe")   
+#bcp plus drole
+
